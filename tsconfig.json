@@ -10,7 +10,11 @@
     "noEmit": true,
     "strict": true,
     "target": "esnext",
-    "typeRoots": ["./src/types"]
+    "typeRoots": ["./src/types"],
+    "baseUrl": "./src",
+    "paths": {
+      "~/*": ["*"]
+    }
   },
   "exclude": [
     "node_modules",
