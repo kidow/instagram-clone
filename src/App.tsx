@@ -14,6 +14,11 @@ import {
   DebugInstructions,
   ReloadInstructions
 } from 'react-native/Libraries/NewAppScreen'
+import styled from '@emotion/native'
+
+const Body = styled.View`
+  background-color: ${Colors.white};
+`
 
 interface Props {}
 
@@ -27,7 +32,7 @@ const App = ({}: Props) => {
           style={styles.scrollView}
         >
           <Header />
-          <View style={styles.body}>
+          <Body>
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Step One</Text>
               <Text style={styles.sectionDescription}>
@@ -54,7 +59,7 @@ const App = ({}: Props) => {
               </Text>
             </View>
             <LearnMoreLinks />
-          </View>
+          </Body>
         </ScrollView>
       </SafeAreaView>
     </>
