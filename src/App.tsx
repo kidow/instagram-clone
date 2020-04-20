@@ -2,6 +2,8 @@ import * as React from 'react'
 import { StyleSheet, View, Text, StatusBar } from 'react-native'
 import { Header } from 'react-native/Libraries/NewAppScreen'
 
+import AsyncStorage from '@react-native-community/async-storage'
+
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
