@@ -25,7 +25,6 @@ const App = ({}: Props) => {
         <Stack.Navigator initialRouteName="CheckLogin">
           <Stack.Screen name="CheckLogin" component={CheckLogin} />
         </Stack.Navigator>
-        <Text>asd</Text>
       </NavigationContainer>
     </>
   )
