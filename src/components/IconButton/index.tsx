@@ -1,13 +1,45 @@
 import * as React from 'react'
-import { View, Text } from 'react-native'
+import styled from '@emotion/native'
 
-export interface Props {}
+const Container = styled.TouchableOpacity`
+  padding: 8px;
+`
+const Icon = styled.Image``
 
-const ReIconButton = ({}: Props) => {
+export interface Props {
+  iconName:
+    | 'camera'
+    | 'live'
+    | 'send'
+    | 'dotMenu'
+    | 'favorite'
+    | 'comment'
+    | 'bookmark'
+    | 'menu'
+  style?: object
+  onPress?: () => void
+}
+
+const ReIconButton = ({ iconName, style, onPress }: Props) => {
+  const imageSource = {
+    camera: require('~/assets/image/ic_camera.png'),
+    live: require('~/assets/image/ic_live.png'),
+    send: require('~/assets/image/ic_send.png'),
+    dotMenu: require('~/assets/image/ic_dot_menu.png'),
+    favorite: require('~/assets/image/ic_favorite_outline.png'),
+    comment: require('~/assets/image/ic_comment.png'),
+    bookmark: require('~/assets/image/ic_bookmark.png'),
+    menu: require('~/assets/image/ic_menu.png')
+  }
   return (
-    <View>
-      <Text>ReIconButton</Text>
-    </View>
+    <Container
+      style={style}
+      onPress={() => {
+        if (onPress && typeof onPress === 'function') onPress()
+      }}
+    >
+      <Icon source={imageSource[iconName]} />
+    </Container>
   )
 }
 

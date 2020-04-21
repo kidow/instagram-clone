@@ -1,13 +1,31 @@
 import * as React from 'react'
-import { View, Text } from 'react-native'
+import styled from '@emotion/native'
 
-export interface Props {}
+const StyleButton = styled.TouchableOpacity`
+  width: 100%;
+  height: 40px;
+  border-radius: 4px;
+  justify-content: center;
+  align-items: center;
+  background-color: #e796ef;
+`
 
-const ReButton = ({}: Props) => {
+const Label = styled.Text`
+  color: #fff;
+`
+
+export interface Props {
+  label: string
+  style?: Object
+  color?: string
+  onPress?: () => void
+}
+
+const ReButton = ({ label, style, color, onPress }: Props) => {
   return (
-    <View>
-      <Text>ReButton</Text>
-    </View>
+    <StyleButton style={style} onPress={onPress}>
+      <Label style={{ color: color || '#fff' }}>{label}</Label>
+    </StyleButton>
   )
 }
 
