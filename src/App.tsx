@@ -1,19 +1,19 @@
 import * as React from 'react'
-import { StyleSheet, View, Text, StatusBar } from 'react-native'
+import { StatusBar } from 'react-native'
 import { Header } from 'react-native/Libraries/NewAppScreen'
 
-import AsyncStorage from '@react-native-community/async-storage'
-
 import Navigator from './screens'
+import { RandomUserDataProvider } from './store'
 
 interface Props {}
 
 const App = ({}: Props) => {
   return (
-    <>
+    <RandomUserDataProvider cache>
+      <StatusBar barStyle="dark-content" />
       <Header />
       <Navigator />
-    </>
+    </RandomUserDataProvider>
   )
 }
 
