@@ -1,5 +1,6 @@
 import * as React from 'react'
 import styled from '@emotion/native'
+import { StyleProp, ViewStyle } from 'react-native'
 
 const StyleButton = styled.TouchableOpacity`
   width: 100%;
@@ -16,7 +17,7 @@ const Label = styled.Text`
 
 export interface Props {
   label: string
-  style?: Object
+  style?: StyleProp<ViewStyle>
   color?: string
   onPress?: () => void
 }

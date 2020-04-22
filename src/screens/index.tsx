@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { StatusBar } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
@@ -18,11 +17,7 @@ import SignupScreen from './Signup'
 import UploadScreen from './Upload'
 
 const Navigator = () => {
-  return (
-    <>
-      <StatusBar barStyle="dark-content" />
-    </>
-  )
+  return <></>
 }
 
 export default Navigator

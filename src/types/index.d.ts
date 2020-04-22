@@ -9,15 +9,5 @@ export interface IFeed extends IUserProfile {
 }
 
 export type INavigation = {
-  CheckLogin: {}
-  Drawer: {}
-  FeedListOnly: {}
-  Feeds: {}
-  Login: {}
-  MyFeed: {}
-  Notification: {}
-  PasswordReset: {}
-  Profile: {}
-  Signup: {}
-  Upload: {}
+  [screen: string]: object
 }

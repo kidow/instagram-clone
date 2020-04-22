@@ -1,5 +1,6 @@
 import * as React from 'react'
 import styled from '@emotion/native'
+import { StyleProp, ViewStyle } from 'react-native'
 
 const Container = styled.View`
   width: 100%;
@@ -19,7 +20,7 @@ export interface Props {
   placeholder?: string
   keyboardType?: 'default' | 'email-address' | 'numeric' | 'phone-pad'
   secureTextEntry?: boolean
-  style?: Object
+  style?: StyleProp<ViewStyle>
   clearMode?: boolean
   onChangeText?: (text: string) => void
 }

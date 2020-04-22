@@ -1,5 +1,6 @@
 import * as React from 'react'
 import styled from '@emotion/native'
+import { StyleProp, ViewStyle } from 'react-native'
 
 const Container = styled.TouchableOpacity`
   padding: 8px;
@@ -16,7 +17,7 @@ export interface Props {
     | 'comment'
     | 'bookmark'
     | 'menu'
-  style?: object
+  style?: StyleProp<ViewStyle>
   onPress?: () => void
 }
 
