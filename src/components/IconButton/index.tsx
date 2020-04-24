@@ -23,14 +23,14 @@ export interface Props {
 
 const ReIconButton = ({ iconName, style, onPress }: Props) => {
   const imageSource = {
-    camera: require('~/assets/image/ic_camera.png'),
-    live: require('~/assets/image/ic_live.png'),
-    send: require('~/assets/image/ic_send.png'),
-    dotMenu: require('~/assets/image/ic_dot_menu.png'),
-    favorite: require('~/assets/image/ic_favorite_outline.png'),
-    comment: require('~/assets/image/ic_comment.png'),
-    bookmark: require('~/assets/image/ic_bookmark.png'),
-    menu: require('~/assets/image/ic_menu.png')
+    camera: require('~/assets/images/ic_camera.png'),
+    live: require('~/assets/images/ic_live.png'),
+    send: require('~/assets/images/ic_send.png'),
+    dotMenu: require('~/assets/images/ic_dot_menu.png'),
+    favorite: require('~/assets/images/ic_favorite_outline.png'),
+    comment: require('~/assets/images/ic_comment.png'),
+    bookmark: require('~/assets/images/ic_bookmark.png'),
+    menu: require('~/assets/images/ic_menu.png')
   }
   return (
     <Container

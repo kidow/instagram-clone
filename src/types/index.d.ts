@@ -4,7 +4,7 @@ export interface IUserProfile {
 }
 
 export interface IFeed extends IUserProfile {
-  images: Array<string>
+  images: string[]
   description: string
 }
 

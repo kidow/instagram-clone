@@ -71,7 +71,7 @@ const DrawerScreen = ({ navigation }: Props) => {
           }}
         >
           <ButtonContainer>
-            <Icon source={require('~/assets/iamges/ic_profile_outline.png')} />
+            <Icon source={require('~/assets/images/ic_profile_outline.png')} />
             <Title>로그아웃</Title>
           </ButtonContainer>
         </Button>

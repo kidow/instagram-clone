@@ -30,7 +30,7 @@ const StoryName = styled.Text`
 `
 
 export interface Props {
-  storyList: Array<IFeed>
+  storyList: IFeed[]
 }
 
 const ReStoryList = ({}: Props) => {

@@ -33,7 +33,7 @@ export interface Props {
   name: string
   photo: string
   description: string
-  images: Array<string>
+  images: string[]
 }
 
 const ReFeed = ({ id, name, photo, description, images }: Props) => {

@@ -14,11 +14,11 @@ const Loading = Styled.View`
 
 interface Props {
   cache?: boolean
-  children: JSX.Element | Array<JSX.Element>
+  children: JSX.Element | JSX.Element[]
 }
 
 interface IRnadomUserData {
-  getMyFeed: (number?: number) => Array<IFeed>
+  getMyFeed: (number?: number) => IFeed[]
 }
 
 const RandomUserDataContext = createContext<IRnadomUserData>({
@@ -37,7 +37,7 @@ const RandomUserDataProvider = ({ cache, children }: Props) => {
     if (cacheList.length !== 25) return
     return cacheList
   }
-  const setCachedData = (key: string, data: Array<any>) =>
+  const setCachedData = (key: string, data: any[]) =>
     AsyncStorage.setItem(key, JSON.stringify(data))
 
   const setUsers = async () => {
@@ -102,8 +102,8 @@ const RandomUserDataProvider = ({ cache, children }: Props) => {
     else setCachedData('ImageList', imageList)
   }, [imageList])
 
-  const getImages = (): Array<string> => {
-    let images: Array<string> = []
+  const getImages = (): string[] => {
+    let images: string[] = []
     const count = Math.floor(Math.random() * 4)
 
     for (let i = 0; i <= count; i++) {
@@ -112,8 +112,8 @@ const RandomUserDataProvider = ({ cache, children }: Props) => {
 
     return images
   }
-  const getMyFeed = (number: number = 10): Array<IFeed> => {
-    let feeds: Array<IFeed> = []
+  const getMyFeed = (number: number = 10): IFeed[] => {
+    let feeds: IFeed[] = []
     for (let i = 0; i < number; i++) {
       const user = userList[Math.floor(Math.random() * 24)]
       feeds.push({
@@ -125,7 +125,8 @@ const RandomUserDataProvider = ({ cache, children }: Props) => {
     }
     return feeds
   }
-
+  console.log('userList', userList.length)
+  console.log('imageList', imageList.length)
   return (
     <RandomUserDataContext.Provider value={{ getMyFeed }}>
       {userList.length === 25 &&

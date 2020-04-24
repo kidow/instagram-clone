@@ -34,7 +34,7 @@ const MenuContainer = styled.View`
 
 export interface Props {
   id: number
-  images: Array<String>
+  images: string[]
 }
 
 const ReFeedBody = ({ id, images }: Props) => {

@@ -18,7 +18,7 @@ export interface Props {
   id?: number
   bounces?: boolean
   scrollEnabled?: boolean
-  feedList: Array<IFeed>
+  feedList: IFeed[]
   loading?: boolean
   onRefresh?: () => void
   onEndReached?: () => void

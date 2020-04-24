@@ -23,7 +23,7 @@ const PostImage = styled.Image``
 export interface Props {
   id: number
   width: number
-  data: Array<IFeed>
+  data: IFeed[]
   onEndReached: () => void
 }
 
