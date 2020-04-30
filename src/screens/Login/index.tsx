@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { View, Text, Button } from 'react-native'
 import { StackNavigationProp } from '@react-navigation/stack'
 import { INavigation } from '~/types'
 import styled from '@emotion/native'
@@ -71,7 +70,7 @@ const LoginScreen = ({ navigation }: Props) => {
           style={{ marginBottom: 24 }}
           onPress={() => {
             AsyncStorage.setItem('key', 'JWT_KEY')
-            navigation.navigate('MainNavigator')
+            navigation.navigate('MainTabNavigator')
           }}
         />
         <SignupText>
@@ -87,9 +86,5 @@ const LoginScreen = ({ navigation }: Props) => {
     </Container>
   )
 }
-
-// LoginScreen.navigationOptions = {
-//   header: null
-// }
 
 export default LoginScreen

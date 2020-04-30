@@ -44,10 +44,10 @@ const RandomUserDataProvider = ({ cache, children }: Props) => {
     const cachedData = await getCacheData('UserList')
     if (cachedData) return setUserList(cachedData)
     try {
-      const response = await fetch('https://uinames.com/api/?amount=25&ext')
+      const response = await fetch('https://randomuser.me/api/?results=25')
       const data = await response.json()
-      setUserList(data)
-      setCachedData('UserList', data)
+      setUserList(data.results)
+      setCachedData('UserList', data.results)
     } catch (err) {
       console.log(err)
     }
@@ -125,8 +125,6 @@ const RandomUserDataProvider = ({ cache, children }: Props) => {
     }
     return feeds
   }
-  console.log('userList', userList.length)
-  console.log('imageList', imageList.length)
   return (
     <RandomUserDataContext.Provider value={{ getMyFeed }}>
       {userList.length === 25 &&

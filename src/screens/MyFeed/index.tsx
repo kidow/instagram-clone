@@ -3,7 +3,7 @@ import { useState, useEffect, useContext } from 'react'
 import { FlatList } from 'react-native'
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs'
 import { INavigation, IFeed } from '~/types'
-import { ReIconButton, ReFeed, ReStoryList } from '~/components'
+import { ReFeed, ReStoryList } from '~/components'
 import { RandomUserDataContext } from '~/store'
 
 export interface Props {
@@ -40,7 +40,7 @@ const MyFeedScreen = ({ navigation }: Props) => {
       renderItem={({ item, index }) => (
         <ReFeed
           id={index}
-          name={item.name}
+          name={`${item.name.first} ${item.name.last}`}
           photo={item.photo}
           description={item.description}
           images={item.images}
@@ -49,16 +49,5 @@ const MyFeedScreen = ({ navigation }: Props) => {
     />
   )
 }
-
-// MyFeedScreen.navigationOptions = {
-//   title: 'Instagram',
-//   headerLeft: <ReIconButton iconName="camera" />,
-//   headerRight: (
-//     <>
-//       <ReIconButton iconName="live" />
-//       <ReIconButton iconName="send" />
-//     </>
-//   )
-// }
 
 export default MyFeedScreen

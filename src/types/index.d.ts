@@ -1,5 +1,8 @@
 export interface IUserProfile {
-  name: string
+  name: {
+    first: string
+    last: string
+  }
   photo: string
 }
 

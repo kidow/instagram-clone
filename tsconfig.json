@@ -14,7 +14,8 @@
     "paths": {
       "~/*": ["*"]
     },
-    "typeRoots": ["./src/types", "./node_modules/@types"]
+    "typeRoots": ["./src/types", "./node_modules/@types"],
+    "experimentalDecorators": true
   },
   "exclude": [
     "node_modules",

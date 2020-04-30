@@ -1,6 +1,7 @@
 import * as React from 'react'
 import styled from '@emotion/native'
 import { ReIconButton, ReFeedBody } from '..'
+import { Text } from 'react-native'
 
 const Container = styled.View`
   padding: 8px 0px;
@@ -17,7 +18,6 @@ const ProfileContainer = styled.View`
 const ProfileImage = styled.Image`
   border-radius: 48px;
   border-width: 1px;
-  border-color: #d3d3d3;
 `
 const UserName = styled.Text`
   font-weight: bold;
@@ -26,7 +26,6 @@ const UserName = styled.Text`
 const FeedFooter = styled.View`
   padding: 0px 8px;
 `
-const Description = styled.Text``
 
 export interface Props {
   id: number
@@ -51,10 +50,10 @@ const ReFeed = ({ id, name, photo, description, images }: Props) => {
       </FeedHeader>
       <ReFeedBody id={id} images={images} />
       <FeedFooter>
-        <Description numberOfLines={2}>
+        <Text numberOfLines={2}>
           <UserName>{name}</UserName>
           {description}
-        </Description>
+        </Text>
       </FeedFooter>
     </Container>
   )

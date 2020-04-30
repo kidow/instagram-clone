@@ -95,8 +95,4 @@ const PasswordResetScreen = ({ navigation }: Props) => {
   )
 }
 
-// PasswordResetScreen.navigationOptions = {
-//   header: null
-// }
-
 export default PasswordResetScreen

@@ -72,6 +72,7 @@ const ReProfileHeader = ({ image, posts, follower, following }: Props) => {
             borderColor: '#d3d3d3',
             height: 32
           }}
+          color="black"
         />
       </ProfileContent>
     </Container>

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, FlatList } from 'react-native'
 import styled from '@emotion/native'
 import { ReIconButton } from '..'
 import { IFeed } from '~/types'
@@ -20,8 +20,8 @@ const StoryBackground = styled.Image`
   position: absolute;
 `
 const StoryImage = styled.Image`
-  width: 50px;
-  height: 50px;
+  width: 52px;
+  height: 52px;
   border-radius: 50px;
 `
 const StoryName = styled.Text`
@@ -33,11 +33,27 @@ export interface Props {
   storyList: IFeed[]
 }
 
-const ReStoryList = ({}: Props) => {
+const ReStoryList = ({ storyList }: Props) => {
   return (
-    <View>
-      <Text>ReStoryList</Text>
-    </View>
+    <FlatList
+      data={storyList}
+      horizontal
+      showsHorizontalScrollIndicator={false}
+      keyExtractor={(item, index) => `story-${index}`}
+      renderItem={({ item, index }) => (
+        <StoryContainer>
+          <Story>
+            <StoryBackground
+              source={require('~/assets/images/story_background.png')}
+            />
+            <StoryImage source={{ uri: item.photo }} />
+          </Story>
+          <StoryName
+            numberOfLines={1}
+          >{`${item.name.first} ${item.name.last}`}</StoryName>
+        </StoryContainer>
+      )}
+    />
   )
 }
 

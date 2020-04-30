@@ -1,8 +1,8 @@
 import * as React from 'react'
-import { DrawerNavigationProp } from '@react-navigation/drawer'
-import { INavigation } from '~/types'
 import AsyncStorage from '@react-native-community/async-storage'
 import styled from '@emotion/native'
+import { NavigationHelpers } from '@react-navigation/native'
+import { DrawerNavigationEventMap } from '@react-navigation/drawer/lib/typescript/src/types'
 
 const Container = styled.SafeAreaView`
   flex: 1;
@@ -36,7 +36,11 @@ const Footer = styled.View`
 `
 
 export interface Props {
-  navigation: DrawerNavigationProp<INavigation, 'Drawer'>
+  // navigation: DrawerNavigationProp<INavigation, 'Drawer'>
+  navigation: NavigationHelpers<
+    Record<string, object | undefined>,
+    DrawerNavigationEventMap
+  >
 }
 
 const DrawerScreen = ({ navigation }: Props) => {

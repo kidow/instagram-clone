@@ -35,7 +35,7 @@ const FeedListOnlyScreen = ({ navigation }: Props) => {
       renderItem={({ item, index }) => (
         <ReFeed
           id={index}
-          name={item.name}
+          name={`${item.name.first} ${item.name.last}`}
           photo={item.photo}
           description={item.description}
           images={item.images}
@@ -44,10 +44,5 @@ const FeedListOnlyScreen = ({ navigation }: Props) => {
     />
   )
 }
-
-// FeedListOnlyScreen.navigationOptions = {
-//   title: '둘러보기',
-//   headerTintColor: '#292929'
-// }
 
 export default FeedListOnlyScreen

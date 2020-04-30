@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Image } from 'react-native'
+import { Image, View } from 'react-native'
 import styled from '@emotion/native'
 import { ReIconButton, ReInput } from '~/components'
 import { NavigationContainer } from '@react-navigation/native'
@@ -25,7 +25,9 @@ const MainTabNavigator = () => {
     <DrawerNav.Navigator
       drawerType="slide"
       drawerPosition="right"
-      drawerContent={() => DrawerScreen}
+      drawerContent={({ navigation }) => (
+        <DrawerScreen navigation={navigation} />
+      )}
     >
       <DrawerNav.Screen name="MainTabs" component={TabsScreen} />
     </DrawerNav.Navigator>
@@ -47,8 +49,8 @@ const TabsScreen = () => {
             <Image
               source={
                 focused
-                  ? require('~/assets/images/ic_add.png')
-                  : require('~/assets/images/ic_add_outline.png')
+                  ? require('~/assets/images/ic_home.png')
+                  : require('~/assets/images/ic_home_outline.png')
               }
             />
           )
@@ -152,22 +154,16 @@ const MyFeedNavigator = () => {
           title: 'Instagram',
           headerLeft: () => <ReIconButton iconName="camera" />,
           headerRight: () => (
-            <>
+            <View style={{ flexDirection: 'row' }}>
               <ReIconButton iconName="live" />
               <ReIconButton iconName="send" />
-            </>
+            </View>
           )
         }}
       />
     </MyFeedStack.Navigator>
   )
 }
-
-const SearchBar = styled.View`
-  flex: 1;
-  flex-direction: row;
-  align-items: center;
-`
 
 const FeedsStack = createStackNavigator()
 const FeedsNavigator = () => {
@@ -178,21 +174,27 @@ const FeedsNavigator = () => {
         component={FeedsScreen}
         options={{
           headerTitle: () => (
-            <SearchBar>
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
               <ReInput
-                style={{ flex: 1, marginLeft: 8, height: 32 }}
+                style={{ marginLeft: 8, height: 32 }}
                 placeholder="검색"
               />
-              <ReIconButton iconName="camera" />
-            </SearchBar>
-          ),
-          headerBackTitle: ''
+              <ReIconButton
+                iconName="camera"
+                style={{ width: 50, height: 50 }}
+              />
+            </View>
+          )
         }}
       />
       <FeedsStack.Screen
         name="FeedListOnly"
         component={FeedListOnlyScreen}
-        options={{ title: '둘러보기', headerTintColor: '#292929' }}
+        options={{
+          title: '둘러보기',
+          headerTintColor: '#292929',
+          headerBackTitle: ''
+        }}
       />
     </FeedsStack.Navigator>
   )
@@ -202,7 +204,11 @@ const UploadStack = createStackNavigator()
 const UploadNavigator = () => {
   return (
     <UploadStack.Navigator>
-      <UploadStack.Screen name="Upload" component={UploadScreen} />
+      <UploadStack.Screen
+        name="사진 업로드"
+        component={UploadScreen}
+        options={{ title: '사진 업로드' }}
+      />
     </UploadStack.Navigator>
   )
 }
@@ -217,7 +223,10 @@ const ProfileNavigator = () => {
         options={({ navigation }) => ({
           title: '내 정보',
           headerRight: () => (
-            <ReIconButton iconName="menu" onPress={navigation.openDrawer()} />
+            <ReIconButton
+              iconName="menu"
+              onPress={() => navigation.openDrawer()}
+            />
           )
         })}
       />
@@ -230,9 +239,21 @@ const Navigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="CheckLogin">
-        <Stack.Screen name="CheckLogin" component={CheckLoginScreen} />
-        <Stack.Screen name="LoginNavigator" component={LoginNavigator} />
-        <Stack.Screen name="MainTabNavigator" component={MainTabNavigator} />
+        <Stack.Screen
+          name="CheckLogin"
+          component={CheckLoginScreen}
+          options={{ header: () => null }}
+        />
+        <Stack.Screen
+          name="LoginNavigator"
+          component={LoginNavigator}
+          options={{ header: () => null }}
+        />
+        <Stack.Screen
+          name="MainTabNavigator"
+          component={MainTabNavigator}
+          options={{ header: () => null }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   )

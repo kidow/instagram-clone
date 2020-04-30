@@ -4,12 +4,7 @@ import { StackNavigationProp } from '@react-navigation/stack'
 import { INavigation, IFeed } from '~/types'
 import styled from '@emotion/native'
 import { RandomUserDataContext } from '~/store'
-import {
-  ReIconButton,
-  ReTab,
-  ReProfileHeader,
-  ReProfileBody
-} from '~/components'
+import { ReTab, ReProfileHeader, ReProfileBody } from '~/components'
 import {
   ScrollView,
   Dimensions,
@@ -95,10 +90,5 @@ const ProfileScreen = ({ navigation }: Props) => {
     </ScrollView>
   )
 }
-
-// ProfileScreen.navigationOptions = {
-//   title: 'Profile',
-//   headerRight: <ReIconButton iconName="menu" onPress={navigation.openDrawer} />,
-// }
 
 export default ProfileScreen

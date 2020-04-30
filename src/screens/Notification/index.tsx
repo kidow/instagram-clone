@@ -11,10 +11,6 @@ const ProfileTabContainer = styled.View`
   flex-direction: row;
   background-color: #feffff;
 `
-const Label = styled.Text`
-  color: #929292;
-  text-align: center;
-`
 const TabContainer = styled.SafeAreaView`
   width: 100%:
   height: ${Dimensions.get('window').height}px;

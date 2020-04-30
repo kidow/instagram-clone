@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { FlatList } from 'react-native'
+import { FlatList, Image } from 'react-native'
 import styled from '@emotion/native'
 import { IFeed } from '~/types'
 
@@ -10,6 +10,8 @@ const NotificationContainer = styled.View`
 `
 const ProfileImage = styled.Image`
   border-radius: 40px;
+  width: 50px;
+  height: 50px;
 `
 const LabelName = styled.Text`
   font-weight: bold;
@@ -18,7 +20,6 @@ const Message = styled.Text`
   flex: 1;
   padding: 0 16px;
 `
-const PostImage = styled.Image``
 
 export interface Props {
   id: number
@@ -38,14 +39,12 @@ const ReNotificationList = ({ id, width, data, onEndReached }: Props) => {
       onEndReachedThreshold={0.5}
       renderItem={({ item, index }) => (
         <NotificationContainer>
-          <ProfileImage
-            source={{ uri: item.photo }}
-            style={{ width: 50, height: 50 }}
-          />
+          <ProfileImage source={{ uri: item.photo }} />
           <Message numberOfLines={2}>
-            <LabelName>{item.name}</LabelName>님이 회원님의 게시물을 좋아합니다.
+            <LabelName>{`${item.name.first} ${item.name.last}`}</LabelName>님이
+            회원님의 게시물을 좋아합니다.
           </Message>
-          <PostImage
+          <Image
             source={{ uri: item.images[0] }}
             style={{ width: 50, height: 50 }}
           />

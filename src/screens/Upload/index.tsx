@@ -2,15 +2,8 @@ import * as React from 'react'
 import { useState, useContext, useEffect } from 'react'
 import { StackNavigationProp } from '@react-navigation/stack'
 import { INavigation, IFeed } from '~/types'
-import styled from '@emotion/native'
 import { RandomUserDataContext } from '~/store'
 import { ReImageFeedList } from '~/components'
-
-const SearchBar = styled.View`
-  flex: 1;
-  flex-direction: row;
-  align-items: cover;
-`
 
 export interface Props {
   navigation: StackNavigationProp<INavigation, 'Upload'>
@@ -39,9 +32,5 @@ const UploadScreen = ({ navigation }: Props) => {
     />
   )
 }
-
-// UploadScreen.navigationOptions = {
-//   title: '사진 업로드'
-// }
 
 export default UploadScreen

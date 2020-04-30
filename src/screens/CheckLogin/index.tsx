@@ -24,8 +24,4 @@ const CheckLoginScreen = ({ navigation }: Props) => {
   return <Container />
 }
 
-// CheckLoginScreen.navigationOptions = {
-//   header: null
-// }
-
 export default CheckLoginScreen
